@@ -1,0 +1,10 @@
+libdir=/Users/rwtourdot/mlinker_git_hub/packages/bamtools/lib
+includedir=/Users/rwtourdot/mlinker_git_hub/packages/bamtools/include
+
+Name: BamTools
+Description: BamTools is a C++ library for reading and manipulating BAM files
+Version: 2.5.1
+
+Requires.private: zlib
+Libs: -L${libdir} -lbamtools
+Cflags: -I${includedir}

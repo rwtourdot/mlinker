@@ -1,0 +1,20 @@
+
+Example linker commands
+#########
+./mlinker extract -c chr18 -i /path/to/tenx_pacbio_nanopore.bam -v ./path/to/variants.vcf -e tenx -n trial
+./mlinker solve -c chr18 -i /output/graph_file.dat -n trial
+./mlinker phase -c chr18 -i /path/to/hic.bam -v ./path/to/variants.vcf -e tenx -n trial
+./mlinker scaffold -c chr18 -i /output/hap_file.dat -g ./output/graph_hic_file.dat -n trial -e 700
+./mlinker recover -c chr18 -i /output/hap_full_scaffold.dat -g /output/graph_variant_file.dat
+./mlinker pop -g ./output/graph_variant_nov7_RPE1_22_hic_chr1.dat -v ./vcf_data/RPE-1.hets.chr1-X.BA.SNP.sites.hg19tohg38.vcf -c chr1 -n test
+
+######### concatenate multiple graph files #########
+cat ./graph_hash_sep25_atrio_nanopore_chr2.dat ./graph_hash_sep25_atrio_tenx_chr2.dat >> ./graph_hash_sep25_atrio_nanopore_tenx_chr2.dat
+
+#########
+
+#########
+grep "sum" ./nohup_solve_oct23_RPE1_chr1.out | cut -d " " -f 6,8,10,12
+grep "sum" ./nohup_solve_oct23_RPE1_chr1.out | cut -d " " -f 6,8,10,12 | awk 'NR % 2 == 0'
+grep "sum" ./nohup_solve_oct23_RPE1_chr1.out | cut -d " " -f 6,8,10,12 | awk 'NR % 2 == 1'
+
