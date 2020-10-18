@@ -1,4 +1,4 @@
-mLinker - Tools for Analyzing Long and Linked Read Sequencing
+# mLinker - Tools for Analyzing Long and Linked Read Sequencing
 ------------
 
 Table of Contents
