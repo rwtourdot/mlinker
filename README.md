@@ -12,14 +12,12 @@ Table of Contents
 Installation
 ------------
 
-This code requires bamtools, htslib, c++11, and zlib libraries.
+From the mlinker directory run `./build.sh` or install manually. This code requires bamtools, htslib, c++11, and zlib libraries.
 
   * htslib: https://github.com/samtools/htslib
   * bamtools: https://github.com/pezmaster31/bamtools
 
-From the mlinker directory run `./build.sh` or install manually:
-
-Installing htslib locally
+Installing htslib locally:
 ```bash
 git clone https://github.com/samtools/htslib
 cd htslib; autoheader; autoconf
@@ -28,7 +26,7 @@ make; make install
 cd ..
 ```
 
-Installing bamtools locally
+Installing bamtools locally:
 ```bash
 git clone git://github.com/pezmaster31/bamtools.git
 cd bamtools; mkdir build; cd build
