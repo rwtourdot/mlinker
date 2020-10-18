@@ -17,7 +17,7 @@ This code requires bamtools, htslib, c++11, and zlib libraries.
   * htslib: https://github.com/samtools/htslib
   * bamtools: https://github.com/pezmaster31/bamtools
 
-From the mlinker directory run `build.sh` or install manually:
+From the mlinker directory run `./build.sh` or install manually:
 
 Installing htslib locally
 ```bash
@@ -25,7 +25,7 @@ git clone https://github.com/samtools/htslib
 cd htslib
 autoheader
 autoconf
-./configure --prefix=/path/to/linker/packages/htslib/
+./configure --prefix=/path/to/mlinker/packages/htslib/
 make; make install
 cd ..
 ```
@@ -35,14 +35,14 @@ Installing bamtools locally
 git clone git://github.com/pezmaster31/bamtools.git
 cd bamtools
 mkdir build; cd build
-cmake -DCMAKE_INSTALL_PREFIX=/path/to/linker/packages/bamtools/ ..
+cmake -DCMAKE_INSTALL_PREFIX=/path/to/mlinker/packages/bamtools/ ..
 make; make install
 cd ../..
 ```
 
 Installing python dependencies and scripts:
 ```bash
-cd <root of linker>
+cd <root of mlinker>
 virtualenv -p python3 env
 source env/bin/activate
 ./setup.py [develop|install]
@@ -234,7 +234,7 @@ The .bam file can originate from Long Read or Linked Read sequencing. The alignm
 
 **.vcf file**
 
-The .vcf file can be obtained with GATK (https://software.broadinstitute.org/gatk/) or another variant caller and should contain all heterozygous sites.  Indels will not be considered in linkers phasing methods, and SNP's called in centromere and variable regions of the genome should be removed.  .vcf files should have the same reference as the long or linked read .bam file
+The .vcf file can be obtained with GATK (https://software.broadinstitute.org/gatk/) or another variant caller and should contain all heterozygous sites.  Indels will not be considered in mlinkers phasing methods, and SNP's called in centromere and variable regions of the genome should be removed.  .vcf files should have the same reference as the long or linked read .bam file
 
 <!--
 **SV file**
