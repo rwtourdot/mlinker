@@ -17,10 +17,10 @@ This code requires bamtools, htslib, c++11, and zlib libraries.
   * htslib: https://github.com/samtools/htslib
   * bamtools: https://github.com/pezmaster31/bamtools
 
-From the mlinker directory run **build.sh** or install manually:
+From the mlinker directory run `build.sh` or install manually:
 
 Installing htslib locally
-```
+```bash
 git clone https://github.com/samtools/htslib
 cd htslib
 autoheader
@@ -31,7 +31,7 @@ cd ..
 ```
 
 Installing bamtools locally
-```
+```bash
 git clone git://github.com/pezmaster31/bamtools.git
 cd bamtools
 mkdir build; cd build
@@ -41,7 +41,7 @@ cd ../..
 ```
 
 Installing python dependencies and scripts:
-```
+```bash
 cd <root of linker>
 virtualenv -p python3 env
 source env/bin/activate
@@ -49,7 +49,7 @@ source env/bin/activate
 ```
 
 Make an empty output directory if not present:
-```
+```bash
 mkdir ./output
 ```
 
@@ -73,7 +73,7 @@ Commands
 --------
 
 **List Commands**
-```
+```bash
 ./mlinker -h
 ```
 <!--
@@ -96,7 +96,7 @@ Commands
 
 This command extracts all long and linked read phasing information from an aligned bamfile given a corresponding vcf file containing heterozygous sites.  The long read technology flag (tenx,pacbio,nanopore,hic) should correspond to the bamfile chosen.
 
-```
+```bash
 ./mlinker extract -i ./input.bam -v het_sites.vcf -e tenx -c chr21 -n sample_name
 ```
   * Output is a graph file: graph_variant_{}.dat
@@ -108,7 +108,7 @@ The output of this command is a graph_variant file which lists all of the unique
 
 After extracting all phasing information into graph_variant files and combining or trimming certain hashes the samples haplotype can be solved for by:
 
-```
+```bash
 ./mlinker solve -i ./graph_variant_{}_chr21.dat -c chr21 -n sample_name
 ```
   * Output is the haplotype solution file: hap_solution_{}.dat
@@ -120,7 +120,7 @@ The haplotype file contains a Block Switch Energy column which can be used to de
 
 This command takes a haplotype solution file and combines it with hic phasing information in a corresponding graph_variant_hic file to generate a full chromosome haplotype scaffold.  An energy cutoff which defines haplotype blocks is specified by the -e flag.
 
-```
+```bash
 ./mlinker scaffold -i ./hap_solution_{}_chr21.dat -g ./graph_variant_hic_chr21.dat -e -700 -c chr21 -n sample_name
 ```
   * Output is a haplotype scaffold file: hap_full_scaffold_{}.dat
@@ -132,7 +132,7 @@ The hap_full_scaffold file contains less heterozygous sites than the haplotype s
 
 This command takes a haplotype scaffold file and phases all variants in a graph file to that scaffold.  This is useful since some small haplotype blocks and their variants are lost when generating a haplotype scaffold.  Though this command was built to recover variants, it can also be used to phase somatic variants to the germline haplotype - given a corresponding graph file.
 
-```
+```bash
 ./mlinker recover -i ./hap_full_scaffold_{}_chr21.dat -g ./graph_variant_{}_chr21.dat -e tech -c chr21 -n sample_name
 ```
   * Output is a recovered haplotype file: hap_recovered_{}.dat
@@ -144,7 +144,7 @@ The recovered haplotype file is similar to the scaffold file but its additional 
 
 This command takes a vcf and bam file and extracts the read coverage of each base. Base counts at each heterozygous site must pass a base quality and map quality cutoff.
 
-```
+```bash
 ./mlinker coverage -i ./input.bam -v het_sites.vcf -e illumina -c chr21 -n sample_name
 ```
   * Output is heterozygous site coverage file: het_coverage.dat
