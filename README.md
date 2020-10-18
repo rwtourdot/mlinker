@@ -55,13 +55,13 @@ mLinker is a suite of C++ tools useful for interpreting long and linked read seq
 This program was used to determine Whole Chromosome Haplotypes as detailed here: [biorxiv](https://www.biorxiv.org/content/10.1101/629337v1).  mLinker currently supports 10X, Pacbio, Oxford Nanopore, and HiC sequencing technologies.  A diagram of the germline haplotype phasing workflow is shown below.
 
 <p align="center">
-<img src="https://github.com/rwtourdot/mlinker/blob/master/new_linker_flowchart.png" width=900/>
+<img src="https://github.com/rwtourdot/mlinker/blob/main/new_linker_flowchart.png" width=900/>
 </p>
 
-Associated plotting scripts found in **/R_plots** can be used to determine block energy cutoffs, assess haplotype accuracy, and plot haplotype specific copy number.
+Associated plotting scripts found in `./R_plots` can be used to determine block energy cutoffs, assess haplotype accuracy, and plot haplotype specific copy number.
 
 <p align="center">
-<img src="https://github.com/rwtourdot/mlinker/blob/master/plot_output.png" width=600/>
+<img src="https://github.com/rwtourdot/mlinker/blob/main/plot_output.png" width=600/>
 </p>
 
 Commands
