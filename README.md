@@ -22,9 +22,7 @@ From the mlinker directory run `./build.sh` or install manually:
 Installing htslib locally
 ```bash
 git clone https://github.com/samtools/htslib
-cd htslib
-autoheader
-autoconf
+cd htslib; autoheader; autoconf
 ./configure --prefix=/path/to/mlinker/packages/htslib/
 make; make install
 cd ..
@@ -33,8 +31,7 @@ cd ..
 Installing bamtools locally
 ```bash
 git clone git://github.com/pezmaster31/bamtools.git
-cd bamtools
-mkdir build; cd build
+cd bamtools; mkdir build; cd build
 cmake -DCMAKE_INSTALL_PREFIX=/path/to/mlinker/packages/bamtools/ ..
 make; make install
 cd ../..
